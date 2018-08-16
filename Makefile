@@ -48,6 +48,10 @@ CFLAGS  = -O0 -g -Wall -I.\
 LDSCRIPT = stm32_flash.ld
 LDFLAGS += -T$(LDSCRIPT) -mthumb -mcpu=cortex-m4 -nostdlib
 
+all: $(BIN) $(HEX)
+	echo --------------------------------
+	echo Finished Build...
+	
 $(BIN): $(ELF)
 	$(OBJCOPY) -O binary $< $@
 
